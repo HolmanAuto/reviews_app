@@ -1,15 +1,15 @@
 module ReviewsApp
   class ReviewStarter
+
     def initialize(args)
-      @ui = args.fetch(:ui)
-      @gateway = args.fetch(:gateway)
-      @validator = args.fetch(:validator, ReviewValidator.new)
+      @ui         = args.fetch(:ui)
+      @gateway    = args.fetch(:gateway)
+      @validator  = args.fetch(:validator, ReviewValidator.new)
       @normalizer = args.fetch(:normalizer, ReviewNormalizer.new)
     end
 
     def start_review(review_request)
       review = normalizer.normalize review_request
-
       if !validator.valid? review
         ui.invalid_review
       elsif review_exists? review
