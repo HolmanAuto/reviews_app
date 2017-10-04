@@ -12,7 +12,7 @@ module ReviewsApp
       review.customer_vehicle_make = review_request["make"]
       review.customer_vehicle_model = review_request["mdl"]
       review.customer_email = review_request["email"] || review_request["work_email"]
-      review.review_key = review_request["reviewkey"]
+      review.review_key = review_request["review_key"]
       review
     end
 
